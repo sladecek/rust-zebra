@@ -1,10 +1,5 @@
 # Zebra Puzzle
 
-Welcome to Zebra Puzzle on Exercism's Scala Track.
-If you need help running the tests or submitting your code, check out `HELP.md`.
-
-## Instructions
-
 Solve the zebra puzzle.
 
 1. There are five houses.
@@ -30,19 +25,3 @@ drink different beverages and smoke different brands of cigarettes.
 Which of the residents drinks water?
 Who owns the zebra?
 
-## Source
-
-### Created by
-
-- @abo64
-
-### Contributed to by
-
-- @ErikSchierboom
-- @ppartarr
-- @rajeshpg
-- @ricemery
-
-### Based on
-
-Wikipedia - https://en.wikipedia.org/wiki/Zebra_Puzzle

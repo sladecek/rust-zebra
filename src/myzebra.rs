@@ -1,6 +1,5 @@
 use crate::zebra::{Zebra, ZebraBuilder};
 
-
 fn is_immediately_to_the_right(v1: &str, v2: &str) -> bool {
     distance(v1, v2) == 1
 }
@@ -10,7 +9,7 @@ fn is_next_to(v1: &str, v2: &str) -> bool {
 }
 
 fn distance(v1: &str, v2: &str) -> i32 {
-    let conv = |v| { String::from(v).parse::<i32>().unwrap()};
+    let conv = |v| String::from(v).parse::<i32>().unwrap();
     conv(v2) - conv(v1)
 }
 
@@ -34,7 +33,7 @@ pub fn init_my_zebra<'a>() -> Zebra<'a> {
             "ivory",
             "position",
             "position",
-            &is_immediately_to_the_right,
+            Box::new(is_immediately_to_the_right),
         )
         //    7. The Old Gold smoker owns snails.
         .fact("smoke", "OldGold", "pet", "snail")
@@ -52,7 +51,7 @@ pub fn init_my_zebra<'a>() -> Zebra<'a> {
             "fox",
             "position",
             "position",
-            &is_next_to,
+            Box::new(is_next_to),
         )
         //   12. Kools are smoked in the house next to the house where the horse is kept.
         .predicate(
@@ -62,7 +61,7 @@ pub fn init_my_zebra<'a>() -> Zebra<'a> {
             "horse",
             "position",
             "position",
-            &is_next_to,
+            Box::new(is_next_to),
         )
         //   13. The Lucky Strike smoker drinks orange juice.
         .fact("smoke", "LuckyStrike", "beverage", "juice")
@@ -76,14 +75,13 @@ pub fn init_my_zebra<'a>() -> Zebra<'a> {
             "blue",
             "position",
             "position",
-            &is_next_to,
+            Box::new(is_next_to),
         )
         .choice("position", vec!["2", "4", "5"])
         .choice("beverage", vec!["watter"])
         .choice("pet", vec!["zebra"])
         .build()
 }
-
 
 #[test]
 pub fn test_distance() {
